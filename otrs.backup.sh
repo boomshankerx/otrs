@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 OTRS=/opt/otrs
-DATE=`date '+%Y-%m-%d_%H-%M'`
-DEST=backup
+DATE=`date '+%F-%H%M'`
+DEST=/root/otrs/backup
 
 [[ -d $DEST ]] || mkdir $DEST
 $OTRS/scripts/backup.pl -d $DEST -r 30 -t fullbackup

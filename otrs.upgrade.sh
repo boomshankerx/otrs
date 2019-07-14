@@ -1,10 +1,10 @@
 !/usr/bin/env bash
 
-VERSION=6.0.19
+VERSION=6.0.20
 ARCHIVE=otrs-$VERSION.tar.gz
 BASE=/opt/otrs
 BACKUP=upgrade/upgrade
-DATE=`date '%F-%H%M%S'`
+DATE=`date '+%F-%H%M%S'`
 OTRS=otrs-$VERSION
 
 # DOWNLOAD LATEST
@@ -35,4 +35,4 @@ service postfix start
 service cron start
 su -c "$BASE/bin/otrs.Daemon.pl start" otrs
 su -c "$BASE/bin/Cron.sh start" otrs
-mv -p $BACKUP upgrade/upgrade-$DATE
+mv $BACKUP upgrade/upgrade-$DATE

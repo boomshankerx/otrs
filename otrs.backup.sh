@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
-OTRS=/opt/otrs
+BASE=/opt/otrs
 DATE=`date '+%F-%H%M'`
-DEST=/root/otrs/backup
+SRC=/root/otrs/backup/
+DEST=lorne@server.techg:/mnt/data/backup/_otrs
 
-[[ -d $DEST ]] || mkdir $DEST
-$OTRS/scripts/backup.pl -d $DEST -r 30 -t fullbackup
+[[ -d $SRC ]] || mkdir $SRC
+$BASE/scripts/backup.pl -d $SRC -r 30 -t fullbackup
 
-rsync -av --delete $DEST lorne@server.techg:/mnt/data/backup/_otrs
+rsync -av --delete $SRC $DEST

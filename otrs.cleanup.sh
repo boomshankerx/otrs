@@ -7,4 +7,5 @@ BASE=/opt/otrs
 OTRS=otrs-$VERSION
 BACKUP=upgrade/upgrade-$DATE
 
-
+su -c "/opt/otrs/bin/otrs.Console.pl Maint::Email::MailQueue --list" otrs
+su -c "/opt/otrs/bin/otrs.Console.pl Maint::Log::Print" otrs
